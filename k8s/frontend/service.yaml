@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: frontend-service
+  namespace: bookstore-dev
+spec:
+
+  type: NodePort
+
+  selector:
+    app: bookstore-frontend 
+
+  ports:
+  - port: 5173
+    targetPort: 5173
