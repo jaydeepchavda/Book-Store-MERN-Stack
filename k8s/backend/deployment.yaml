@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: backend-deployment
+  namespace: bookstore-dev
+
+spec:
+
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: bookstore-backend
+
+  template:
+
+    metadata:
+      labels:
+        app: bookstore-backend
+
+    spec:
+
+      containers:
+
+      - name: bookstore-backend
+
+        image: jaydipaws/bookstore-backend:v1
+
+        ports:
+        - containerPort: 5555
