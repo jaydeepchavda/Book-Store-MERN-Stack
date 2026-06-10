@@ -28,5 +28,10 @@ spec:
 
         image: jaydipaws/bookstore-backend:v1
 
+        envFrom:
+
+        - configMapRef:
+            name: backend-config
+            
         ports:
         - containerPort: 5555
