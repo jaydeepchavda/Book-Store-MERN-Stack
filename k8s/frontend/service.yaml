@@ -6,7 +6,7 @@ metadata:
   namespace: bookstore-dev
 spec:
 
-  type: NodePort
+  ztype: NodePort
 
   selector:
     app: bookstore-frontend 
