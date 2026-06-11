@@ -3,7 +3,7 @@ import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 import booksRoute from './routes/booksRoute.js';
 import cors from 'cors';
-
+import healthRoute from './routes/healthRoute.js';
 const app = express();
 
 // Middleware for parsing request body
@@ -27,7 +27,7 @@ app.get('/', (request, response) => {
 });
 
 app.use('/books', booksRoute);
-
+app.use('/health', healthRoute);
 mongoose
   .connect(mongoDBURL)
   .then(() => {
