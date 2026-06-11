@@ -32,6 +32,9 @@ spec:
 
         - configMapRef:
             name: backend-config
-            
+
+        - secretRef:
+            name: backend-secret
+
         ports:
         - containerPort: 5555
