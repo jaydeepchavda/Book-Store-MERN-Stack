@@ -1,0 +1,11 @@
+apiVersion: storage.k8s.io/v1
+
+kind: StorageClass
+
+metadata:
+  name: bookstore-storage
+
+provisioner: kubernetes.io/no-provisioner
+# in production we can use the no-provisioner or something else for azure or gcp
+
+volumeBindingMode: WaitForFirstConsumer

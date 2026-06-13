@@ -1,32 +1,54 @@
 apiVersion: apps/v1
-kind: StatefulSet
 
+kind: StatefulSet
 
 metadata:
   name: bookstore-mongo
   namespace: bookstore-dev
 
 spec:
+
   serviceName: mongo
 
   replicas: 1
-
 
   selector:
     matchLabels:
       app: bookstore-mongo
 
+
   template:
+
     metadata:
+
       labels:
         app: bookstore-mongo
 
-        
+
     spec:
+
       containers:
+
       - name: bookstore-mongo
+
         image: mongo:7
+
         ports:
+
         - containerPort: 27017
-        
-        
+
+
+        volumeMounts:
+
+        - name: mongo-storage
+
+          mountPath: /data/db
+
+
+      volumes:
+
+      - name: mongo-storage
+
+        persistentVolumeClaim:
+
+          claimName: bookstore-mongo-pvc
